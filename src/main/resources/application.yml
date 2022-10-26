@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_service
+    username: postgres
+    password: postgres
+  liquibase:
+    change-log: classpath:db.changelog/changelog-master.yml
+logging:
+  level:
+    org.springframework: ERROR
+    com.mkyong: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d %p %c{1.} [%t] %m%n"
+  file:
+    name: app.log

@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: uuid-ossp_plugin
+      author: postgres
+      changes:
+        - sql:
+            sql: create extension if not exists "uuid-ossp" schema public;
+  - changeSet:
+      id: create_account
+      author: postgres
+      changes:
+        - createTable:
+            tableName: account
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                  defaultValue: public.uuid_generate_v4()
+              - column:
+                  name: balance
+                  type: bigint
+                  constraints:
+                    nullable: false

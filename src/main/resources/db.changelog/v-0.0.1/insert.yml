@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: loadData-first
+      author: postgres
+      changes:
+        - loadData:
+            catalogName:  account
+            columns:
+              - column:
+                  header:  balance
+                  name:  balance
+                  type:  NUMERIC
+            commentLineStartsWith:  //
+            encoding:  UTF-8
+            file:  data/balance.csv
+            quotchar:  ''''
+            relativeToChangelogFile:  true
+            schemaName:  public
+            separator:  ;
+            tableName:  account
+            usePreparedStatements:  true
